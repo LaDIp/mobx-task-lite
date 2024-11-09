@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
-import { task, TypeHooks } from './task' // Путь к вашему модулю task
+import { task, TypeHooks } from '../task'
 
 describe('task', () => {
   it('should initialize with idle state', () => {
@@ -52,7 +52,7 @@ describe('task', () => {
     expect(wrappedTask.state.isLoading).toBe(false)
     expect(wrappedTask.state.isError).toBe(true)
     expect(wrappedTask.state.data).toBeNull()
-    expect(wrappedTask.state.error).toBe(String(mockError))
+    expect(wrappedTask.state.error).toBe(mockError)
   })
 
   it('should call onBeforeLoad, onFailed, and onAfterLoad hooks correctly', async () => {

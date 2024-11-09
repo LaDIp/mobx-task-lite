@@ -7,7 +7,7 @@ export type TypeTaskState<T> = {
   status: TypeTaskStatus
   isLoading: boolean
   isError: boolean
-  error: string
+  error: unknown
 }
 
 export type TypeHooks<R, Args extends any[]> = {
@@ -70,7 +70,7 @@ export const task = <T, Args extends any[]>(
         state.status = 'failed'
         state.data = null
         state.isError = true
-        state.error = String(error)
+        state.error = error
       })
 
       await settings?.hooks?.onFailed?.(wrappedAction, error)

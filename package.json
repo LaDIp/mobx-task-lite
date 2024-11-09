@@ -1,6 +1,6 @@
 {
   "name": "mobx-task-lite",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./dist/mobx-task-lite.mjs",
   "types": "./dist/index.d.ts",
   "files": [
