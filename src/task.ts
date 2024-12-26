@@ -65,6 +65,8 @@ export const task = <T, Args extends any[]>(
         state.isError = false
         state.error = ''
       })
+
+      return result
     } catch (error) {
       runInAction(() => {
         state.status = 'failed'
@@ -74,6 +76,7 @@ export const task = <T, Args extends any[]>(
       })
 
       await settings?.hooks?.onFailed?.(wrappedAction, error)
+      return error
     } finally {
       taskRunCount--
       if (taskRunCount === 0) {
